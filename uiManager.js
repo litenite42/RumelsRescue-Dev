@@ -62,6 +62,9 @@ class uiManager {
       this.mute = !!muteAudio;
       this.punishLazy = !!punishLazy;
 
+      const playerName = document.querySelector('[name="playerName"]')?.value ?? 'Player1';
+      _FOTL.player.name =playerName;
+      medalsInit(playerName);
       this.currentMenu.classList.remove("is-visible");
 
       if (this.skipIntro) {

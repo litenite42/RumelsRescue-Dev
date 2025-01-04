@@ -46,6 +46,9 @@ section.menus {
         <summary>Extra Credit</summary>
       <label><input type=checkbox name=punishLazy value=true> Punish Laziness? <small title="If player does not move for about 4 seconds, their character is teleported 1-2 lanes up.">(?)</small></label>
       </details>
+<label for=playerName>Player Name</label>
+        <input name=playerName value=Player1>
+
       </fieldset>
       <hr>
       <button id=main-menu-submit>Start</button>
@@ -64,10 +67,10 @@ section.menus {
           <hr>
 <span class="start-game-message">
   Keep pressing <kbd>W</kbd>/<kbd>&uarr;</kbd>/LMB/Tapping your screen to try and catch up to the thieves! How long will you make it?
-  <br><br><small>Note: Running into the guardrails on the side of the road may result in.... a... lemony snickett situation...iykyk ;)</small>
+  <br><br><small>Note: Running into the guardrails on the side of the road may result in a... less than ideal situation.</small>
         </span>
         <br>
-        <button type=button id=start-game>Start Game!</button>
+                <button type=button id=start-game>Start Game!</button>
         </div>
         </div>
       </div>
@@ -85,6 +88,7 @@ section.menus {
     </section>
 
 <script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.release.js></script>
+<script src=medals.js></script>
 <!-- <script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.js></script> -->
 <script src=uiManager.js></script>
 <script src=player.js></script>

@@ -359,7 +359,20 @@ function gameUpdatePost() {
     _FOTL.lastPlayerActivityFrame = frame;
   }
 
+
   _FOTL.vehicleFactory.New();
+
+  if (_FOTL.currentDifficulty == _FOTL.difficulties.easy){
+    easyStart.unlock();
+  } else if (_FOTL.currentDifficulty == _FOTL.difficulties.medium) {
+    mediumStart.unlock();
+  } else if (_FOTL.currentDifficulty == _FOTL.difficulties.hard) {
+    hardStart.unlock();
+  }
+
+  if (_FOTL.score >= 10) {
+   firstSteps.unlock();
+  }
 }
 
 function drawLane(height, thickness, color) {
