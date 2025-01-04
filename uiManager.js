@@ -35,6 +35,7 @@ class uiManager {
   mute;
   punishLazy;
   visible;
+  playerName;
 
   menuContainer;
   menus;
@@ -63,7 +64,7 @@ class uiManager {
       this.punishLazy = !!punishLazy;
 
       const playerName = document.querySelector('[name="playerName"]')?.value ?? 'Player1';
-      _FOTL.player.name =playerName;
+      this.playerName = playerName;
       medalsInit(playerName);
       this.currentMenu.classList.remove("is-visible");
 

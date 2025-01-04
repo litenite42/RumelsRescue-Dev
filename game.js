@@ -219,8 +219,6 @@ class SpriteSheet {
   }
 }
 
-
-
 function isPaused() {
   return [_FOTL.states.paused, _FOTL.states.menu, _FOTL.states.intro].includes(
     _FOTL.currentState,
@@ -342,6 +340,7 @@ function gameUpdatePost() {
 
   if (!_FOTL.player && _FOTL.uiManager.difficulty) {
     _FOTL.player = new Player(levelSize, playerSprite);
+    _FOTL.player.name = _FOTL.uiManager.playerName;
   }
 
   if (_FOTL.currentState !== _FOTL.states.running) return;
@@ -362,16 +361,24 @@ function gameUpdatePost() {
 
   _FOTL.vehicleFactory.New();
 
-  if (_FOTL.currentDifficulty == _FOTL.difficulties.easy){
+  handleMedals(();
+}
+
+function handleMedals() {
+  if (_FOTL.uiManager.difficulty == _FOTL.difficulties.easy){
     easyStart.unlock();
-  } else if (_FOTL.currentDifficulty == _FOTL.difficulties.medium) {
+  } else if (_FOTL.uiManager.difficulty == _FOTL.difficulties.medium) {
     mediumStart.unlock();
-  } else if (_FOTL.currentDifficulty == _FOTL.difficulties.hard) {
+  } else if (_FOTL.uiManager.difficulty == _FOTL.difficulties.hard) {
     hardStart.unlock();
   }
 
   if (_FOTL.score >= 10) {
    firstSteps.unlock();
+  }
+
+  if (_FOTL.player.pos.y < 1) {
+    leftLegDamage.unlock();
   }
 }
 
