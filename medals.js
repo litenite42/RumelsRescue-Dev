@@ -18,7 +18,7 @@ class HardStartMedal extends Medal {
 
 class FirstStepsMedal extends Medal {
   constructor(id) {
-    super(id??3, 'The Future Lies in The Distance', 'Score 10 points on any difficulty', '🙌')
+    super(id??3, 'Start Me Up', 'Score 10 points on any difficulty', '🙌')
   }
 }
 
@@ -28,10 +28,38 @@ class LeftLegDamageMedal extends Medal {
   }
 }
 
+class RightLegDamageMedal extends Medal {
+  constructor(id) {
+    super(id??5, 'Right Foot, let\'s stomp', 'Scrape against the right (top) guardrail', '🩹')
+  }
+}
+
+class LostHealthMedal extends Medal {
+  constructor(id) {
+    super(id??6, 'Just a scratch', 'Lose a health', '🤕')
+  }
+}
+
+class LostSecondHealth extends Medal {
+   constructor(id) {
+     super(id??7, 'Leaving a dent', 'Lose the second health', '🩸')
+   }
+ } 
+
+class LostAllHealth extends Medal {
+  constructor(id) {
+    super(id??8, 'See the other guy', 'Lose final health and spin out', '☠️')
+  }
+}
+
 const easyStart = new EasyStartMedal(),
   mediumStart = new MediumStartMedal(),
   hardStart = new HardStartMedal();
 
 const firstSteps = new FirstStepsMedal(),
-  leftLegDamage = new LeftLegDamageMedal();
+  leftLegDamage = new LeftLegDamageMedal(),
+  rightLegDamage = new RightLegDamageMedal();
 
+const firstHealth = new LostHealthMedal(),
+    secondHealth = new LostSecondHealth(),
+    finalHealth = new LostAllHealth();

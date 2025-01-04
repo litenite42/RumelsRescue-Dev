@@ -343,6 +343,7 @@ function gameUpdatePost() {
     _FOTL.player.name = _FOTL.uiManager.playerName;
   }
 
+  if (_FOTL.player) handleMedals();
   if (_FOTL.currentState !== _FOTL.states.running) return;
   if (!_FOTL.uiManager.mute && !_FOTL.currentlyPlaying) {
     _FOTL.soundtrack[0].play(0, 0.6, 1, 0, true);
@@ -361,7 +362,6 @@ function gameUpdatePost() {
 
   _FOTL.vehicleFactory.New();
 
-  handleMedals(();
 }
 
 function handleMedals() {
@@ -379,6 +379,16 @@ function handleMedals() {
 
   if (_FOTL.player.pos.y < 1) {
     leftLegDamage.unlock();
+  } else if (_FOTL.player.pos.y > 19) {
+    rightLegDamage.unlock();
+  }
+
+  if (_FOTL.player.health == 2) {
+    firstHealth.unlock();
+  } else if (_FOTL.player.health == 1) {
+    secondHealth.unlock()
+  } else if (!_FOTL.player.health) {
+    finalHealth.unlock();
   }
 }
 
