@@ -373,7 +373,15 @@ function handleMedals() {
     hardStart.unlock();
   }
 
-  if (_FOTL.score >= 10) {
+  if (_FOTL.score >= 100) {
+    hundredPoints.unlock();
+  } else if (_FOTL.score >= 75) {
+    seventyFivePoints.unlock();
+  } else if (_FOTL.score >= 50) {
+    fiftyPoints.unlock();
+  } else if (_FOTL.score >= 25) {
+    twentyFivePoints.unlock();
+  } else if (_FOTL.score >= 10) {
    firstSteps.unlock();
   }
 

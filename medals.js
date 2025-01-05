@@ -42,7 +42,7 @@ class LostHealthMedal extends Medal {
 
 class LostSecondHealth extends Medal {
    constructor(id) {
-     super(id??7, 'Leaving a dent', 'Lose the second health', '🩸')
+     super(id??7, 'Leaving a dent', 'Lose another health', '🩸')
    }
  } 
 
@@ -52,11 +52,39 @@ class LostAllHealth extends Medal {
   }
 }
 
+class SecondPointsMedal extends Medal {
+  constructor(id) {
+    super(id??9, 'Making your way downtown', 'Score 25 points on any difficulty', '🙌')
+  }
+}
+
+class FiftyPointsMedal extends Medal {
+  constructor(id) {
+    super(id??12, 'Livin\' On A Prayer', 'Score 50 points on any difficulty', '🙌')
+  }
+}
+
+class SeventyFivePointsMedal extends Medal {
+  constructor(id) {
+    super(id??11, 'Going thru H3🏒🏒', 'Score 75 points on any difficulty', '🔥')
+  }
+}
+
+class HundredPointsMedal extends Medal {
+  constructor(id) {
+    super(id??10, '100 in a 55', 'Score 100 points on any difficulty', '🙌')
+  }
+}
+
 const easyStart = new EasyStartMedal(),
   mediumStart = new MediumStartMedal(),
   hardStart = new HardStartMedal();
 
 const firstSteps = new FirstStepsMedal(),
+  twentyFivePoints = new SecondPointsMedal(),
+  fiftyPoints = new FiftyPointsMedal(),
+  seventyFivePoints = new SeventyFivePointsMedal(),
+  hundredPoints = new HundredPointsMedal(),
   leftLegDamage = new LeftLegDamageMedal(),
   rightLegDamage = new RightLegDamageMedal();
 
