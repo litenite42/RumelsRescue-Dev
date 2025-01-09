@@ -1,6 +1,6 @@
 # Rumel's Rescue
 
-Welcome to **Rumel's Rescue**! This action-packed game follows the story of your pet lemur, Rumel, who has been stolen by flannel-covered beasts. You hop on your damaged motorcycle to chase their immense truck through various terrains and challenges. Can you save Rumel and bring him back home?
+Welcome to **Rumel's Rescue**! This action-packed game follows you on an afternoon motorcycle ride with your pet lemur, Rumel, who has been stolen by flannel-covered thieves. You hop on your damaged motorcycle to chase their immense truck through various terrains and challenges. Can you save Rumel and bring him back home?
 Written for LittleJS Game Jam Dec 2024.
 
 ## Features
@@ -21,8 +21,8 @@ Written for LittleJS Game Jam Dec 2024.
 
 ## How to Play
 
-- **Jump**: Press W/Up/Click LMB to jump over obstacles.
-- **Avoid Enemies**: Dodge the flannel-covered beasts and other obstacles to keep chasing the truck.
+- **Jump**: Press W/Up/Click LMB to steer away from the left guardrail.
+- **Avoid Enemies**: Dodge through traffic and avoid obstacles to keep chasing the truck.
 
 ## Contributing
 
