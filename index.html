@@ -88,10 +88,25 @@ section.menus {
     </section>
 
 <script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.release.js></script>
-<script src=medals.js></script>
+<!-- <script src=medals.js></script> -->
 <!-- <script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.js></script> -->
-<script src=uiManager.js></script>
-<script src=player.js></script>
-<script src=vehicle.js></script>
-<script src=vehicleFactory.js></script>
-<script src=game.js></script>
+<!-- <script src=uiManager.js></script> -->
+<!-- <script src=player.js></script> -->
+<!-- <script src=item.js></script> -->
+<!-- <script src=vehicle.js></script> -->
+<!-- <script src=vehicleFactory.js></script> -->
+<!-- <script src=game.js></script> -->
+
+<script>
+const files = ['uiManager', 'medals', 'player', 'item', 'vehicle', 'vehicleFactory', 'game'];
+
+files.forEach(f => {
+  const arr = new Uint32Array(1);
+  crypto.getRandomValues(arr);
+
+const scr = document.createElement('script');
+  scr.src = !debug ? `${f}.js?v=${arr[0]}` : `${f}.js`; 
+
+  document.body.appendChild(scr);
+})
+  </script>

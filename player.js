@@ -49,6 +49,10 @@ class Player extends EngineObject {
     this.mirror = true;
   }
 
+  heal(healFor) {
+    this.health += healFor;
+  }
+
   render() {
     drawTile(this.pos, this.size, this.tileInfo, this.color, this.angle, this.mirror, this.additiveColor);
   }

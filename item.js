@@ -1,28 +1,51 @@
 class Item extends EngineObject {
   constructor() {
+    super();
     if (this.constructor == Item) {
       throw new Error("Abstract instantiation not permitted.");
     }
-
   }
 
-  collideWithObjects() {
-    throw new Error("Collision detection must be implemented.");
+  collideWithObject(obj) {
+    this.operate(obj);
   }
 
-  operate() {
+  operate(obj) {
     throw new Error("Operate method must be provided.");
   }
 }
 
 class Health extends Item {
-  constructor() {
+  healsFor;
+  
+  constructor(healsFor) {
+    super();
+
     this.mass = .5;
+    this.gravityScale = .001;
     this.velocity.x = rand(.05, .08);
 
     this.pos.x = randInt(-3, 5);
     this.pos.y = randInt(15, 19);
+
+    this.healsFor = healsFor;
   }
 
+  collideWithObject(obj) {
+    super.collideWithObject(obj);
+  }
 
+  operate(obj) {
+    if (_FOTL.player !== obj) return;
+
+    _FOTL.player.heal(this.healsFor);
+  }
+
+  update() {
+    super.update();
+    if (this.pos.y < 0 || this.pos.x > 40) { 
+      this.destroy();
+      numberHealthsAvailable--;
+    }
+  }
 }

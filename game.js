@@ -232,6 +232,7 @@ setCameraPos(levelSize.scale(0.5)); // center camera in level
 
 let gameSprites;
 let playerSprite;
+let numberHealthsAvailable;
 
 function chooseSprite(key) {
     const keySprites = gameSprites.filter(x => x.key === key).shift();
@@ -273,6 +274,8 @@ function gameInit() {
     return new SpriteSheet(specifiedSheet.sprites, sheetData, `${spriteSheets.base}${sheetData}.${spriteSheets.imageFormat}`, ndx);
   });  
 })();
+
+  numberHealthsAvailable = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -324,6 +327,11 @@ function gameUpdate() {
     if (!!_FOTL.uiManager.punishLazy) {
       _FOTL.score += _FOTL.uiManager.difficulty / 10;
     }
+  }
+
+  if (numberHealthsAvailable < 3 && _FOTL.player && _FOTL.player.health < 3 && _FOTL.score % 10 === 0) {
+    new Health(2);
+    numberHealthsAvailable++;
   }
 }
 
