@@ -1,46 +1,5 @@
 "use strict";
 
-const _FOTL = (() => {
-  const palette = {
-    red: new Color().setHex("#ff0000"),
-    green: new Color().setHex("#009342"),
-    white: new Color().setHex("#ffffff"),
-  };
-
-
-  const states = {
-    menu: 0,
-    intro: 10,
-    running: 100,
-    paused: 200,
-    crashed: 300,
-    spinOut: 400,
-    stalledOut: 500,
-    gameOver: -100,
-  };
-
-  const music = ["assets/music/01.mp3"];
-
-  const difficulties = {
-    easy: 10,
-    medium: 20,
-    hard: 30,
-  };
-
-  return {
-    palette: palette,
-    bgColor: palette.white,
-    score: 0,
-    states: states,
-    currentState: states.menu,
-    difficulties: difficulties,
-    currentDifficulty: difficulties.easy,
-    lastPlayerActivityFrame: -1,
-    currentlyPlaying: "",
-    music: music
-  };
-})();
-
 const spriteSheets = {
   base: 'assets/images/',
   names: ['player', 'easy', 'medium', 'hard', 'falling'],
@@ -233,6 +192,7 @@ setCameraPos(levelSize.scale(0.5)); // center camera in level
 let gameSprites;
 let playerSprite;
 let numberHealthsAvailable;
+let numberPotHoles;
 
 function chooseSprite(key) {
     const keySprites = gameSprites.filter(x => x.key === key).shift();
@@ -276,6 +236,7 @@ function gameInit() {
 })();
 
   numberHealthsAvailable = 0;
+  numberPotHoles = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -333,6 +294,8 @@ function gameUpdate() {
     new Health(2);
     numberHealthsAvailable++;
   }
+
+  _FOTL.runExts();
 }
 
 ///////////////////////////////////////////////////////////////////////////////

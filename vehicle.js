@@ -19,6 +19,8 @@ class Vehicle extends EngineObject
 
         this.mass = 0;
         this.tileInfo = tileInfo;
+
+        this.mirror = true;
     }
   
     collideWithObject(obj) {

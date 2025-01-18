@@ -102,7 +102,7 @@ class Player extends EngineObject {
     super.update();
   }
 
-  decrementHealth() {
-    this.health--;
+  damage(damage = 1) {
+    this.health -= damage;
   }
 }
