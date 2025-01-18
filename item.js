@@ -7,7 +7,6 @@ class Item extends EngineObject {
   }
 
   collideWithObject(obj) {
-    this.operate(obj);
   }
 
   operate(obj) {
@@ -29,16 +28,12 @@ class Health extends Item {
     this.pos.y = randInt(15, 19);
 
     this.healsFor = healsFor;
+    this.setCollision(true); 
   }
 
   collideWithObject(obj) {
-    super.collideWithObject(obj);
-  }
-
-  operate(obj) {
-    if (_FOTL.player !== obj) return;
-
-    _FOTL.player.heal(this.healsFor);
+    obj && obj.heal && obj.heal(this.healsFor);
+    obj === _FOTL.player && this.destroy();
   }
 
   update() {

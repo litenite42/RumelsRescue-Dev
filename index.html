@@ -105,7 +105,7 @@ files.forEach(f => {
   crypto.getRandomValues(arr);
 
 const scr = document.createElement('script');
-  scr.src = !debug ? `${f}.js?v=${arr[0]}` : `${f}.js`; 
+  scr.src = debug ? `${f}.js?v=${arr[0]}` : `${f}.js`; 
 
   document.body.appendChild(scr);
 })
