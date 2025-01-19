@@ -28,6 +28,25 @@ const _FOTL = (() => {
     gameOver: -100,
   };
 
+  const _resetExts = () => {
+      const names = Object.getOwnPropertyNames(extensions);
+
+      names && names.forEach(n => {
+        debug && console.debug('Clearing ext: '+n);
+        const extension = _FOTL[n];
+         extension && extension.reset && extension.reset();
+      });
+    };
+
+  const _runExts = () => {
+      const names = Object.getOwnPropertyNames(extensions);
+
+      names && names?.forEach(n => {
+        debug && console.debug('Running ext: '+n);
+        extensions[n]();
+      })
+    };
+
   const music = ["assets/music/01.mp3"];
 
   const difficulties = {
@@ -39,7 +58,7 @@ const _FOTL = (() => {
   return {
     palette: palette,
     bgColor: palette.white,
-    score: 0,
+    score: 15,
     states: states,
     currentState: states.menu,
     difficulties: difficulties,
@@ -49,13 +68,7 @@ const _FOTL = (() => {
     music: music,
     addExt: _addExt,
     getExt: _getExt,
-    runExts: () => {
-      const names = Object.getOwnPropertyNames(extensions);
-
-      names && names?.forEach(n => {
-        debug && console.debug('Running ext: '+n);
-        extensions[n]();
-      })
-    }
+    resetExts: _resetExts,
+    runExts:_runExts
   };
 })();

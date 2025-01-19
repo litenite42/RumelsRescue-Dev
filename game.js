@@ -212,6 +212,8 @@ function chooseSprite(key) {
 
     if (_FOTL.uiManager.visible)
       _FOTL.uiManager.toggleGameOver(false);
+
+    _FOTL.resetExts();
 }
 ///////////////////////////////////////////////////////////////////////////////
 function gameInit() {

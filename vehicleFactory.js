@@ -1,4 +1,5 @@
 class VehicleFactory {
+
   #difficulty;
   #lastLane;
   constructor(settings) {

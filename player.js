@@ -104,5 +104,6 @@ class Player extends EngineObject {
 
   damage(damage = 1) {
     this.health -= damage;
+    return true;
   }
 }
