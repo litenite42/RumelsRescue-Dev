@@ -58,7 +58,7 @@ const _FOTL = (() => {
   return {
     palette: palette,
     bgColor: palette.white,
-    score: 15,
+    score: 0,
     states: states,
     currentState: states.menu,
     difficulties: difficulties,
