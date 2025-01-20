@@ -25,6 +25,9 @@ class LaneSelector {
     }
 
     this.#lastLane = selectedQuad;
-    return selectedQuad;
+
+    const offset = randInt(0, 3);
+
+    return selectedQuad - offset;
   }
 }

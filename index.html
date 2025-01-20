@@ -1,112 +1,122 @@
-<!DOCTYPE html><head>
-<title>Rumel's Rescue</title>
-<meta charset=utf-8>
-<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-<style>
+<!DOCTYPE html>
+<head>
+  <title>Rumel's Rescue</title>
+  <meta charset=utf-8>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+  <style>
+    html,
+    body,
+    pre,
+    code,
+    kbd,
+    samp {
+      font-family: "Press Start 2P";
+    }
 
-      html, body, pre, code, kbd, samp {
-          font-family: "Press Start 2P";
-      }
-      h1 {
-        color:green;
-      }
-section.menus {
-  z-index:1;
-  background: white;
-  border: 2px solid black;
-  padding: .5em;
-  max-width: 75%;
-}
-      section.menus:not(.is-visible),
-      section.menus > div:not(.is-visible),
-      #intro-screen p:not(.is-visible) {
-        display:none;
-      }
+    h1 {
+      color: green;
+    }
 
-      .start-game-container:not(.is-visible) {
-        display: none;
-      }
-</style>
-</head><body>
-  <section class="menus nes-container is-visible">  
+    section.menus {
+      z-index: 1;
+      background: white;
+      border: 2px solid black;
+      padding: .5em;
+      max-width: 75%;
+    }
+
+    section.menus:not(.is-visible),
+    section.menus>div:not(.is-visible),
+    #intro-screen p:not(.is-visible) {
+      display: none;
+    }
+
+    .start-game-container:not(.is-visible) {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <section class="menus nes-container is-visible">
     <div id="main-menu" class="is-visible">
       <h1>Rumel's Rescue</h1>
       <fieldset>
         <legend>Difficulty</legend>
-        <label><input type="radio" name="difficulty" value="Easy" checked> Easy</label>
-        <label><input type="radio" name="difficulty" value="Medium"> Medium</label>
-        <label><input type="radio" name="difficulty" value="Hard"> Hard</label>
+        <label>
+          <input type="radio" name="difficulty" value="Easy" checked> Easy </label>
+        <label>
+          <input type="radio" name="difficulty" value="Medium"> Medium </label>
+        <label>
+          <input type="radio" name="difficulty" value="Hard"> Hard </label>
       </fieldset>
       <fieldset>
         <legend>Settings</legend>
-      <label><input type=checkbox name=muteAudio value=true> Mute Audio</label>
-      <label><input type=checkbox name=skipIntro value=true> Skip Intro</label>
-      <details>
-        <summary>Extra Credit</summary>
-      <label><input type=checkbox name=punishLazy value=true> Punish Laziness? <small title="If player does not move for about 4 seconds, their character is teleported 1-2 lanes up.">(?)</small></label>
-      </details>
-<label for=playerName>Player Name</label>
+        <label>
+          <input type=checkbox name=muteAudio value=true> Mute Audio </label>
+        <label>
+          <input type=checkbox name=skipIntro value=true> Skip Intro </label>
+        <details>
+          <summary>Extra Credit</summary>
+          <label>
+            <input type=checkbox name=punishLazy value=true> Punish Laziness? <small title="If player does not move for about 4 seconds, their character is teleported 1-2 lanes up.">(?)</small>
+          </label>
+        </details>
+        <label for=playerName>Player Name</label>
         <input name=playerName value=Player1>
-
       </fieldset>
       <hr>
       <button id=main-menu-submit>Start</button>
-      </div>
-
-      <div id="intro-screen">
-        <p class=is-visible>You were out for a pleasant ride with your best friend in the world; your pet Rumel The Lemur. The two of you were having quite the joyful occasion when
-        a large truck swerved out in front of you causing you to veer off road.</p> 
-        <p>You came to pinned by the body of your motorcycle and can only look on as a pair of flannel covered arms swoop into view and take grasp of Rumel; laying unconcious but a few meters away!
-        <p>Horrified, you struggle against the weight on your legs to no avail. VRROOOMMM!! The truck spits and belches dirt all over as it roars away.</p>
-        <p>A sudden strength comes over you and you're able to leverage the vehicle off of you. A look at the thing tells you it's going to be a bumpy ride, but Rumel needs you!</p>
-        <div>
-          <button class="last-page" disabled=disabled type=button> Back</button>
-          <button class="next-page" type=button> Next</button>
-          <div class="start-game-container is-centered">
+    </div>
+    <div id="intro-screen">
+      <p class=is-visible>You were out for a pleasant ride with your best friend in the world; your pet Rumel The Lemur. The two of you were having quite the joyful occasion when a large truck swerved out in front of you causing you to veer off road.</p>
+      <p>You came to pinned by the body of your motorcycle and can only look on as a pair of flannel covered arms swoop into view and take grasp of Rumel; laying unconcious but a few meters away!
+      <p>Horrified, you struggle against the weight on your legs to no avail. VRROOOMMM!! The truck spits and belches dirt all over as it roars away.</p>
+      <p>A sudden strength comes over you and you're able to leverage the vehicle off of you. A look at the thing tells you it's going to be a bumpy ride, but Rumel needs you!</p>
+      <div>
+        <button class="last-page" disabled=disabled type=button> Back</button>
+        <button class="next-page" type=button> Next</button>
+        <div class="start-game-container is-centered">
           <hr>
-<span class="start-game-message">
-  Keep pressing <kbd>W</kbd>/<kbd>&uarr;</kbd>/LMB/Tapping your screen to try and catch up to the thieves! How long will you make it?
-  <br><br><small>Note: Running into the guardrails on the side of the road may result in a... less than ideal situation.</small>
-        </span>
-        <br>
-                <button type=button id=start-game>Start Game!</button>
-        </div>
+          <span class="start-game-message"> Keep pressing <kbd>W</kbd>/ <kbd>&uarr;</kbd>/LMB/Tapping your screen to try and catch up to the thieves! How long will you make it? <br>
+            <br>
+            <small>Note: Running into the guardrails on the side of the road may result in a... less than ideal situation.</small>
+          </span>
+          <br>
+          <button type=button id=start-game>Start Game!</button>
         </div>
       </div>
-      <div id=pause-screen>
-        <h2>Pause</h2> 
-        <p>Press 'P' to unpause</p>
-        </div>
-        <div id=game-over-screen>
-          <h2 class="nes-text is-error">Game Over!</h2>
-          <p>You <span id=game-over-reason></span>!</p>
-          <p>Your score was: <span id=final-score></span></p>
-          <hr>
-          <p>Press <kbd>R</kbd> to restart.
-          </div>
-    </section>
+    </div>
+    <div id=pause-screen>
+      <h2>Pause</h2>
+      <p>Press 'P' to unpause</p>
+    </div>
+    <div id=game-over-screen>
+      <h2 class="nes-text is-error">Game Over!</h2>
+      <p>You <span id=game-over-reason></span>! </p>
+      <p>Your score was: <span id=final-score></span>
+      </p>
+      <hr>
+      <p>Press <kbd>R</kbd> to restart.
+    </div>
+  </section>
+  <script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.release.js></script>
+  <!-- <script src=medals.js></script> -->
+  <!-- <script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.js></script> -->
+  <!-- <script src=uiManager.js></script> -->
+  <!-- <script src=player.js></script> -->
+  <!-- <script src=item.js></script> -->
+  <!-- <script src=vehicle.js></script> -->
+  <!-- <script src=vehicleFactory.js></script> -->
+  <!-- <script src=game.js></script> -->
+  <script>
+    const files = ['gameSettings', 'laneSelector', 'uiManager', 'medals', 'player', 'item', 'healthpickup', 'pothole', 'vehicle', 'vehicleFactory', 'game'];
 
-<script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.release.js></script>
-<!-- <script src=medals.js></script> -->
-<!-- <script src=https://cdn.jsdelivr.net/gh/KilledByAPixel/LittleJS/dist/littlejs.js></script> -->
-<!-- <script src=uiManager.js></script> -->
-<!-- <script src=player.js></script> -->
-<!-- <script src=item.js></script> -->
-<!-- <script src=vehicle.js></script> -->
-<!-- <script src=vehicleFactory.js></script> -->
-<!-- <script src=game.js></script> -->
-
-<script>
-const files = ['gameSettings', 'laneSelector', 'uiManager', 'medals', 'player', 'item', 'vehicle', 'vehicleFactory', 'game'];
-
-files.forEach(f => {
-  const arr = new Uint32Array(1);
-  crypto.getRandomValues(arr);
-
-const scr = document.createElement('script');
-  scr.src = debug ? `${f}.js?v=${arr[0]}` : `${f}.js`; 
-
-  document.body.appendChild(scr);
-})
+    files.forEach(f => {
+      const arr = new Uint32Array(1);
+      crypto.getRandomValues(arr);
+      const scr = document.createElement('script');
+      scr.src = debug ? `${f}.js?v=${arr[0]}` : `${f}.js`;
+      document.body.appendChild(scr);
+    })
   </script>
