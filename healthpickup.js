@@ -18,7 +18,7 @@ class Health extends Item {
     this.setCollision(true);
     let sprite = 0;
 if (!sprite) { 
-    sprite = chooseSprite('pothole1');
+    sprite = chooseSprite('healthpickup');
     }
     this.tileInfo = sprite;
   }
