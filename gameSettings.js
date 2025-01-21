@@ -1,6 +1,6 @@
 const spriteSheets = {
   base: 'assets/images/',
-  names: ['player', 'easy', 'medium', 'hard', 'falling' ],
+  names: ['player', 'easy', 'medium', 'hard', 'falling',  'pothole1', 'healthpickup' ],
   imageFormat: 'png'
 };
 // https://chasersgaming.itch.io/2d-vehicle-sprite-1-20
