@@ -69,38 +69,38 @@ const healthSpriteSheetData ={
   "sprites": [
     {
       "fileName": "healthpickup.png",
-      "width": 32,
-      "height": 32,
+      "width": 64,
+      "height": 64,
       "x": 0,
       "y": 0
     },
     {
       "fileName": "healthpickup.png",
-      "width": 32,
-      "height": 32,
-      "x": 33,
+      "width": 64,
+      "height": 64,
+      "x": 65,
       "y":0 
     },
     {
       "fileName": "healthpickup.png",
-      "width": 32,
-      "height": 32,
+      "width": 64,
+      "height": 64,
       "x": 0,
-      "y":33 
+      "y":5 
     },
     {
       "fileName": "healthpickup.png",
-      "width": 32,
-      "height": 32,
-      "x": 33,
-      "y":33 
+      "width": 64,
+      "height": 64,
+      "x": 65,
+      "y":65 
     }
   ],
   "packMode": "grid",
   "padding": 0,
   "backgroundColor": "rgba(0, 0, 0, 0)",
-  "spriteSheetWidth": 64,
-  "spriteSheetHeight": 64
+  "spriteSheetWidth": 128,
+  "spriteSheetHeight": 128
 };
     spriteSheetData.push(healthSpriteSheetData);
     spriteSheets.names.push('healthpickup');
