@@ -16,6 +16,11 @@ class Health extends Item {
 
     this.healsFor = h;
     this.setCollision(true);
+    let sprite = 0;
+if (!sprite) { 
+    sprite = chooseSprite('pothole1');
+    }
+    this.tileInfo = sprite;
   }
 
   collideWithObject(obj) {
@@ -59,6 +64,46 @@ class Health extends Item {
     _FOTL.pickups.health.Max[diffs.hard] = 3;
 
     _FOTL.pickups.health.count = 0;
+const healthSpriteSheetData ={
+  "key": "healthpickup",
+  "sprites": [
+    {
+      "fileName": "healthpickup.png",
+      "width": 32,
+      "height": 32,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "fileName": "healthpickup.png",
+      "width": 32,
+      "height": 32,
+      "x": 33,
+      "y":0 
+    },
+    {
+      "fileName": "healthpickup.png",
+      "width": 32,
+      "height": 32,
+      "x": 0,
+      "y":33 
+    },
+    {
+      "fileName": "healthpickup.png",
+      "width": 32,
+      "height": 32,
+      "x": 33,
+      "y":33 
+    }
+  ],
+  "packMode": "grid",
+  "padding": 0,
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "spriteSheetWidth": 64,
+  "spriteSheetHeight": 64
+};
+    spriteSheetData.push(healthSpriteSheetData);
+    spriteSheets.names.push('healthpickup');
   }
 
   function spawnHealthPickup() {
