@@ -11,7 +11,7 @@ class Health extends Item {
     this.gravityScale = 0.001;
     this.velocity.x = rand(0.05, 0.08);
 
-    this.pos.x = randInt(-3, 5);
+    this.pos.x = randInt(-13, 10);
     // this.pos.y = randInt(15, 19);
     this.pos.y = l;
 
@@ -69,9 +69,9 @@ if (!sprite) {
     _FOTL.pickups.health.SpawnRate[diffs.hard] = 20;
 
     _FOTL.pickups.health.Max = [];
-    _FOTL.pickups.health.Max[diffs.easy] = 5;
-    _FOTL.pickups.health.Max[diffs.medium] = 4;
-    _FOTL.pickups.health.Max[diffs.hard] = 3;
+    _FOTL.pickups.health.Max[diffs.easy] = 3;
+    _FOTL.pickups.health.Max[diffs.medium] = 2;
+    _FOTL.pickups.health.Max[diffs.hard] = 1;
 
     _FOTL.pickups.health.count = 0;
 const healthSpriteSheetData ={

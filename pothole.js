@@ -15,6 +15,7 @@ class PotHole extends Item {
     this.damageFor = d;
     // this.color = BLACK;
 
+    this.pos.x = randInt(-9, 8);
     this.pos.y = l;
 
     let sprite = 0;
