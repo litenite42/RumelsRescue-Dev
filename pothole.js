@@ -1,5 +1,6 @@
 class PotHole extends Item {
   damageFor;
+  pEmitter;
 
   constructor(obj) {
     super();
@@ -21,6 +22,8 @@ if (!sprite) {
     sprite = chooseSprite('pothole1');
     }
     this.tileInfo = sprite;
+    this.pEmitter = 
+      new ParticleEmitter(this.pos, 0, 0.4, 0.3, 143, 3.14, undefined, new Color(0.878, 0.106, 0.141, 1), new Color(0.878, 0.106, 0.141, 1), new Color(1, 0.471, 0, 0), new Color(0.965, 0.827, 0.176, 0), 0.4, 0.5, 0.9, 0.13, 0.05, 1, 1, 0, 3.14, 0.1, 0.2, 0, 0, 1);
   }
 
   collideWithObject(obj) {

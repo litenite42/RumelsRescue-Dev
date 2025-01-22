@@ -1,5 +1,6 @@
 class Health extends Item {
   healsFor;
+  pEmitter;
 
   constructor(obj) {
     super();
@@ -21,6 +22,10 @@ if (!sprite) {
     sprite = chooseSprite('healthpickup');
     }
     this.tileInfo = sprite;
+    this.pEmitter =
+      new ParticleEmitter(this.pos, 0, 0.75, 0.3, 143, 3.14, undefined, new Color(0.063, 0.969, 0.059, 0.4), new Color(0.282, 0.82, 0.988, 1), new Color(0.149, 0.635, 0.412, 0), new Color(0.965, 0.961, 0.957, 0), 0.4, 0.4, 0.7, 0.13, 0.05, 1, 1, 0, 3.14, 0.1, 0.2, 0, 0, 1);
+
+    this.addChild(this.pEmitter);
   }
 
   collideWithObject(obj) {
@@ -30,6 +35,7 @@ if (!sprite) {
 
   update() {
     super.update();
+    // this.pEmitter.pos = this.pos;
     const offScreen = this.pos.y < 0 || this.pos.x > 40;
 
     if (!offScreen) return; 
@@ -37,6 +43,10 @@ if (!sprite) {
     this.destroy();
     _FOTL.pickups.health.count--;
   }
+
+/*  render() {
+    super.render();
+  }*/
 }
 
 (() => {
