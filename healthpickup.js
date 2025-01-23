@@ -5,7 +5,7 @@ class Health extends Item {
   constructor(obj) {
     super();
 
-    let {h, l} = {...obj};
+    let { h, l } = { ...obj };
 
     this.mass = 0.5;
     this.gravityScale = 0.001;
@@ -18,12 +18,37 @@ class Health extends Item {
     this.healsFor = h;
     this.setCollision(true);
     let sprite = 0;
-if (!sprite) { 
-    sprite = chooseSprite('healthpickup');
+    if (!sprite) {
+      sprite = chooseSprite("healthpickup");
     }
     this.tileInfo = sprite;
-    this.pEmitter =
-      new ParticleEmitter(this.pos, 0, 0.75, 0.3, 143, 3.14, undefined, new Color(0.063, 0.969, 0.059, 0.4), new Color(0.282, 0.82, 0.988, 1), new Color(0.149, 0.635, 0.412, 0), new Color(0.965, 0.961, 0.957, 0), 0.4, 0.4, 0.7, 0.13, 0.05, 1, 1, 0, 3.14, 0.1, 0.2, 0, 0, 1);
+    this.pEmitter = new ParticleEmitter(
+      this.pos,
+      0,
+      0.75,
+      0.3,
+      143,
+      3.14,
+      undefined,
+      new Color(0.063, 0.969, 0.059, 0.4),
+      new Color(0.282, 0.82, 0.988, 1),
+      new Color(0.149, 0.635, 0.412, 0),
+      new Color(0.965, 0.961, 0.957, 0),
+      0.4,
+      0.4,
+      0.7,
+      0.13,
+      0.05,
+      1,
+      1,
+      0,
+      3.14,
+      0.1,
+      0.2,
+      0,
+      0,
+      1,
+    );
 
     this.addChild(this.pEmitter);
   }
@@ -38,13 +63,13 @@ if (!sprite) {
     // this.pEmitter.pos = this.pos;
     const offScreen = this.pos.y < 0 || this.pos.x > 40;
 
-    if (!offScreen) return; 
-    
+    if (!offScreen) return;
+
     this.destroy();
     _FOTL.pickups.health.count--;
   }
 
-/*  render() {
+  /*  render() {
     super.render();
   }*/
 }
@@ -74,50 +99,50 @@ if (!sprite) {
     _FOTL.pickups.health.Max[diffs.hard] = 1;
 
     _FOTL.pickups.health.count = 0;
-const healthSpriteSheetData ={
-  "key": "healthpickup",
-  "sprites": [
-    {
-      "fileName": "healthpickup.png",
-      "width": 64,
-      "height": 64,
-      "x": 0,
-      "y": 0
-    },
-    {
-      "fileName": "healthpickup.png",
-      "width": 64,
-      "height": 64,
-      "x": 65,
-      "y":0 
-    },
-    {
-      "fileName": "healthpickup.png",
-      "width": 64,
-      "height": 64,
-      "x": 0,
-      "y":5 
-    },
-    {
-      "fileName": "healthpickup.png",
-      "width": 64,
-      "height": 64,
-      "x": 65,
-      "y":65 
-    }
-  ],
-  "packMode": "grid",
-  "padding": 0,
-  "backgroundColor": "rgba(0, 0, 0, 0)",
-  "spriteSheetWidth": 128,
-  "spriteSheetHeight": 128
-};
+    const healthSpriteSheetData = {
+      key: "healthpickup",
+      sprites: [
+        {
+          fileName: "healthpickup.png",
+          width: 64,
+          height: 64,
+          x: 0,
+          y: 0,
+        },
+        {
+          fileName: "healthpickup.png",
+          width: 64,
+          height: 64,
+          x: 65,
+          y: 0,
+        },
+        {
+          fileName: "healthpickup.png",
+          width: 64,
+          height: 64,
+          x: 0,
+          y: 5,
+        },
+        {
+          fileName: "healthpickup.png",
+          width: 64,
+          height: 64,
+          x: 65,
+          y: 65,
+        },
+      ],
+      packMode: "grid",
+      padding: 0,
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      spriteSheetWidth: 128,
+      spriteSheetHeight: 128,
+    };
     spriteSheetData.push(healthSpriteSheetData);
-    spriteSheets.names.push('healthpickup');
+    spriteSheets.names.push("healthpickup");
   }
 
   function spawnHealthPickup() {
-    const difficulty = _FOTL.currentDifficulty;
+    const difficulty = _FOTL.uiManager.difficulty;
     const spawnRate = _FOTL.pickups.health.SpawnRate[difficulty];
 
     const shouldSpawn =
@@ -131,10 +156,10 @@ const healthSpriteSheetData ={
     const healsFor = randInt(1, 2);
     const lane = _FOTL.pickups.health.laneSelector.New();
 
-    new Health({ h: healsFor, l: lane});
+    new Health({ h: healsFor, l: lane });
 
     _FOTL.pickups.health.count++;
   }
 
-  _FOTL.addExt("pickups.health", spawnHealthPickup , initHealthPickups);
+  _FOTL.addExt("pickups.health", spawnHealthPickup, initHealthPickups);
 })();

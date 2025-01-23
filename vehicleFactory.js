@@ -37,14 +37,6 @@ class VehicleFactory {
       this.#lastLane = selectedQuad;
     }
 
-    const fallingVehicleSpawns = [25, 18, 12];
-    const currentSpawn = _FOTL.uiManager.difficulty / 10 - 1;
-    if (
-      _FOTL.score > fallingVehicleSpawns[currentSpawn] &&
-      frame % randInt(172, 296) == 0
-    ) {
-      new FallingVehicle(19);
-    }
   }
 
   #SelectLane() {

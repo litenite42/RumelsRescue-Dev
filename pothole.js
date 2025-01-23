@@ -5,7 +5,7 @@ class PotHole extends Item {
   constructor(obj) {
     super();
 
-    const {d, l} = {...obj};
+    const { d, l } = { ...obj };
 
     this.velocity.x = rand(0.05, 0.08);
     this.setCollision(true);
@@ -19,29 +19,65 @@ class PotHole extends Item {
     this.pos.y = l;
 
     let sprite = 0;
-if (!sprite) { 
-    sprite = chooseSprite('pothole1');
+    if (!sprite) {
+      sprite = chooseSprite("pothole1");
     }
     this.tileInfo = sprite;
-    this.pEmitter = 
-      new ParticleEmitter(this.pos, 0, 0.4, 0.3, 143, 3.14, undefined, new Color(0.878, 0.106, 0.141, 1), new Color(0.878, 0.106, 0.141, 1), new Color(1, 0.471, 0, 0), new Color(0.965, 0.827, 0.176, 0), 0.4, 0.5, 0.9, 0.13, 0.05, 1, 1, 0, 3.14, 0.1, 0.2, 0, 0, 1);
+    this.pEmitter = new ParticleEmitter(
+      this.pos,
+      0,
+      0.4,
+      0.3,
+      143,
+      3.14,
+      undefined,
+      new Color(0.878, 0.106, 0.141, 1),
+      new Color(0.878, 0.106, 0.141, 1),
+      new Color(1, 0.471, 0, 0),
+      new Color(0.965, 0.827, 0.176, 0),
+      0.4,
+      0.5,
+      0.9,
+      0.13,
+      0.05,
+      1,
+      1,
+      0,
+      3.14,
+      0.1,
+      0.2,
+      0,
+      0,
+      1,
+    );
+
+    this.addChild(this.pEmitter);
   }
 
   collideWithObject(obj) {
     obj &&
       obj === _FOTL.player &&
       _FOTL.player.damage &&
-      _FOTL.player.damage(this.damageFor) && this.destroy();
+      _FOTL.player.damage(this.damageFor) &&
+      this.destroy();
   }
 
   render() {
-    drawTile(this.pos, this.size, this.tileInfo, this.color, this.angle, this.mirror, this.additiveColor);
+    drawTile(
+      this.pos,
+      this.size,
+      this.tileInfo,
+      this.color,
+      this.angle,
+      this.mirror,
+      this.additiveColor,
+    );
   }
 
   update() {
     super.update();
 
-    if (this.pos.x <= 40) return; 
+    if (this.pos.x <= 40) return;
 
     this.destroy();
     _FOTL.pothole.count--;
@@ -76,30 +112,30 @@ if (!sprite) {
     _FOTL.pothole.Max[diffs.hard] = 5;
 
     _FOTL.pothole.count = 0;
-const potholeSpriteSheetData = {
-  "key": "pothole1",
-"sprites": [
-    {
-      "fileName": "pothole1.png",
-      "width": 64,
-      "height": 64,
-      "x": 0,
-      "y": 0
-    }
-  ],
-  "packMode": "horizontal",
-  "padding": 0,
-  "backgroundColor": "rgba(0, 0, 0, 0)",
-  "spriteSheetWidth": 64,
-  "spriteSheetHeight": 64
-}
+    const potholeSpriteSheetData = {
+      key: "pothole1",
+      sprites: [
+        {
+          fileName: "pothole1.png",
+          width: 64,
+          height: 64,
+          x: 0,
+          y: 0,
+        },
+      ],
+      packMode: "horizontal",
+      padding: 0,
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      spriteSheetWidth: 64,
+      spriteSheetHeight: 64,
+    };
 
     spriteSheetData.push(potholeSpriteSheetData);
-    spriteSheets.names.push('pothole1');
+    spriteSheets.names.push("pothole1");
   }
 
   function spawnPothole() {
-    const difficulty = _FOTL.currentDifficulty;
+    const difficulty = _FOTL.uiManager.difficulty;
     const startScore = _FOTL.pothole.StartScores[difficulty];
     const spawnRate = _FOTL.pothole.SpawnRate[difficulty];
 
@@ -113,7 +149,7 @@ const potholeSpriteSheetData = {
     const dmg = randInt(1, 2);
     const lane = _FOTL.pothole.laneSelector.New();
 
-    new PotHole({ d: dmg, l: lane});
+    new PotHole({ d: dmg, l: lane });
 
     _FOTL.pothole.count++;
   }

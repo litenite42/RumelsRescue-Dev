@@ -67,12 +67,3 @@ class HardVehicle extends Vehicle {
   }
 }
 
-class FallingVehicle extends Vehicle {
-  constructor(lane) {
-    const sprite = gameSprites.filter(x => x.key === 'falling').shift().sprites[0].tileInfo;//chooseSprite('easy');
-    super(.04, .07, 19,sprite);
-
-    this.mass = rand(.1, .6);
-    this.gravityScale = .05;
-  }
-}
